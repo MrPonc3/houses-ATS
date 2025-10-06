@@ -1,27 +1,40 @@
-// === Config ===
-const JSON_URL = "./houses_from_toJSON_template1_latest.json"; // mismo repo/carpeta
+// ====== Config ======
+const JSON_URL = "./houses_from_toJSON_template1_latest.json"; // mismo folder
+const LOADING_DURATION_MS = 5000;
 
-// === Estado global (in-memory) ===
+// Rutas de imágenes (ajusta nombres/ubicación si usas otras)
+const HOUSE_IMAGES = {
+  "Aegir": "./img/house-aegir.png",
+  "Pelagia": "./img/house-pelagia.png",
+  "Kai": "./img/house-kai.png",
+  "Nerida": "./img/house-nerida.png"
+};
+const LOADER_IMAGES = [
+  "./img/loader1.png",
+  "./img/loader2.png",
+  "./img/loader3.png",
+  "./img/loader4.png"
+];
+
+// ====== State ======
 const state = {
-  raw: null,         // JSON original
-  list: [],          // lista aplanada [{name,email,gender,house,level}]
-  filtered: [],      // resultado tras filtros/búsqueda
-  filters: {
-    house: "ALL",
-    level: "ALL",
-    q: ""
-  }
+  list: [],      // registros aplanados {name,email,gender,house,level}
+  nameIndex: {}  // clave normalizada -> registros (array)
 };
 
-// === Utilidades ===
+// ====== Utils ======
 const $ = (sel) => document.querySelector(sel);
 
-function normalizeStr(s) {
-  return String(s || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+function normalizeStr(s){
+  return String(s || "")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
 }
 
-function flattenData(db) {
-  // Espera forma: { HOUSES: { Aegir: {MS:[], HS:[]}, ... } }
+// Convierte el JSON HOUSES a lista plana
+function flattenData(db){
   const out = [];
   const H = db?.HOUSES || {};
   for (const house of ["Aegir","Pelagia","Kai","Nerida"]) {
@@ -42,105 +55,117 @@ function flattenData(db) {
   return out;
 }
 
-function computeStats(list) {
-  const base = {Aegir:{MS:0,HS:0}, Pelagia:{MS:0,HS:0}, Kai:{MS:0,HS:0}, Nerida:{MS:0,HS:0}};
+// Construye índice de nombres para autocompletar/búsqueda
+function buildNameIndex(list){
+  const idx = {};
   for (const r of list) {
-    if (base[r.house] && (r.level === "MS" || r.level === "HS")) {
-      base[r.house][r.level]++;
+    const key = normalizeStr(r.name);
+    if (!idx[key]) idx[key] = [];
+    idx[key].push(r);
+  }
+  return idx;
+}
+
+// ====== Autocomplete con <datalist> ======
+function populateDatalist(list){
+  const dl = $("#nameList");
+  dl.innerHTML = list
+    .map(r => r.name)
+    .filter((v,i,arr)=> v && arr.indexOf(v)===i)
+    .sort((a,b)=>a.localeCompare(b))
+    .map(nm => `<option value="${nm}"></option>`)
+    .join("");
+}
+
+// ====== UI ======
+function show(sectionId){
+  for (const id of ["loader","result"]) $( "#" + id ).hidden = true;
+  $("#" + sectionId).hidden = false;
+}
+function hideErrors(){ $("#error").hidden = true; }
+function showError(msg){
+  const el = $("#error");
+  el.textContent = msg;
+  el.hidden = false;
+}
+
+// Carga de datos inicial
+async function initData(){
+  const res = await fetch(JSON_URL, { cache: "no-store" });
+  if (!res.ok) throw new Error(`No se pudo cargar JSON (HTTP ${res.status})`);
+  const data = await res.json();
+  state.list = flattenData(data);
+  state.nameIndex = buildNameIndex(state.list);
+  populateDatalist(state.list);
+}
+
+// Buscar por nombre (case/acentos insensible)
+function findByName(inputName){
+  const key = normalizeStr(inputName);
+  // Coincidencia exacta normalizada
+  if (state.nameIndex[key]) return state.nameIndex[key][0];
+
+  // Si no hay exacta: buscar por "contiene"
+  const candidates = Object.keys(state.nameIndex).filter(k => k.includes(key));
+  if (candidates.length > 0) return state.nameIndex[candidates[0]][0];
+
+  return null;
+}
+
+// Mostrar resultado final
+function renderResult(rec){
+  // Imagen de casa
+  const imgSrc = HOUSE_IMAGES[rec.house] || "";
+  $("#houseImg").src = imgSrc;
+  $("#houseImg").alt = `Escudo de la casa ${rec.house}`;
+
+  // Textos
+  $("#studentName").textContent = rec.name || "";
+  $("#houseName").textContent = rec.house || "";
+
+  show("result");
+}
+
+// ====== Eventos ======
+function bindEvents(){
+  $("#lookupForm").addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    hideErrors();
+
+    const name = $("#nameInput").value.trim();
+    if (!name) return showError("Por favor, escribe tu nombre.");
+
+    const rec = findByName(name);
+    if (!rec) {
+      return showError("Nombre no encontrado. Revisa la ortografía o elige desde las sugerencias.");
     }
+
+    // Mostrar loader ~5s y luego resultado
+    show("loader");
+    // precargar imágenes del loader por si no existen ya
+    for (const [i, img] of [...$("#loader .spinner").querySelectorAll("img")].entries()){
+      if (LOADER_IMAGES[i]) img.src = LOADER_IMAGES[i];
+    }
+
+    setTimeout(()=>{
+      renderResult(rec);
+    }, LOADING_DURATION_MS);
+  });
+
+  $("#againBtn").addEventListener("click", ()=>{
+    $("#result").hidden = true;
+    $("#nameInput").value = "";
+    $("#nameInput").focus();
+    hideErrors();
+  });
+}
+
+// ====== Init ======
+document.addEventListener("DOMContentLoaded", async ()=>{
+  try{
+    await initData();
+  }catch(err){
+    showError(err.message || "Error al cargar los datos.");
   }
-  return base;
-}
-
-function renderStats(list) {
-  const s = computeStats(list);
-  const html = Object.entries(s).map(([house,counts]) => {
-    const total = counts.MS + counts.HS;
-    return `
-      <div class="stat">
-        <h3>${house}</h3>
-        <p>${total} <span class="muted">(${counts.MS} MS • ${counts.HS} HS)</span></p>
-      </div>
-    `;
-  }).join("");
-  $("#stats").innerHTML = html;
-}
-
-function applyFilters() {
-  const { house, level, q } = state.filters;
-  const qn = normalizeStr(q);
-  state.filtered = state.list.filter(r => {
-    const okHouse = (house === "ALL") || (r.house === house);
-    const okLevel = (level === "ALL") || (r.level === level);
-    const okText  = !qn || normalizeStr(r.name).includes(qn) || normalizeStr(r.email).includes(qn);
-    return okHouse && okLevel && okText;
-  });
-}
-
-function renderTable() {
-  const tbody = $("#tableBody");
-  tbody.innerHTML = state.filtered.map(r => `
-    <tr>
-      <td>${r.name || "—"}</td>
-      <td><a href="mailto:${r.email}">${r.email || "—"}</a></td>
-      <td>${r.gender || "—"}</td>
-      <td>${r.house}</td>
-      <td>${r.level}</td>
-    </tr>
-  `).join("");
-
-  $("#status").textContent = `${state.filtered.length} result(s)`;
-  $("#dataTable").hidden = false;
-}
-
-function updateUI() {
-  applyFilters();
-  renderStats(state.filtered);
-  renderTable();
-}
-
-// === Eventos UI ===
-function bindUI() {
-  $("#houseSelect").addEventListener("change", e => {
-    state.filters.house = e.target.value;
-    updateUI();
-  });
-  $("#levelSelect").addEventListener("change", e => {
-    state.filters.level = e.target.value;
-    updateUI();
-  });
-  $("#searchInput").addEventListener("input", e => {
-    state.filters.q = e.target.value;
-    updateUI();
-  });
-  $("#resetBtn").addEventListener("click", () => {
-    state.filters = { house: "ALL", level: "ALL", q: "" };
-    $("#houseSelect").value = "ALL";
-    $("#levelSelect").value = "ALL";
-    $("#searchInput").value = "";
-    updateUI();
-  });
-}
-
-// === Carga de datos ===
-async function loadJSON() {
-  try {
-    const res = await fetch(JSON_URL, { cache: "no-store" });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    state.raw = data;
-    state.list = flattenData(data);
-    $("#status").textContent = "Data loaded.";
-    updateUI();
-  } catch (err) {
-    console.error(err);
-    $("#status").textContent = `Error loading data: ${err.message}`;
-  }
-}
-
-// === Init ===
-document.addEventListener("DOMContentLoaded", () => {
-  bindUI();
-  loadJSON();
+  bindEvents();
 });
-
