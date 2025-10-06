@@ -3,18 +3,69 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hola mundo</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css" />
+  <title>House Sorting • MS & HS</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <h1>Hello World</h1>
-  <main id="app" class="container" aria-live="polite">
-    <!-- el JS insertará aquí el mensaje -->
-    <noscript>Activa JavaScript para ver el mensaje.</noscript>
+  <header class="site-header">
+    <h1>House Sorting <span class="muted">MS & HS</span></h1>
+    <div class="badge">GitHub Pages</div>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <div class="control">
+        <label for="houseSelect">House</label>
+        <select id="houseSelect">
+          <option value="ALL">All houses</option>
+          <option value="Aegir">Aegir</option>
+          <option value="Pelagia">Pelagia</option>
+          <option value="Kai">Kai</option>
+          <option value="Nerida">Nerida</option>
+        </select>
+      </div>
+
+      <div class="control">
+        <label for="levelSelect">Level</label>
+        <select id="levelSelect">
+          <option value="ALL">MS & HS</option>
+          <option value="MS">MS</option>
+          <option value="HS">HS</option>
+        </select>
+      </div>
+
+      <div class="control grow">
+        <label for="searchInput">Search (name/email)</label>
+        <input id="searchInput" type="search" placeholder="Type to filter..." />
+      </div>
+
+      <button id="resetBtn" class="btn secondary">Reset</button>
+    </section>
+
+    <section id="stats" class="stats">
+      <!-- Se llenará desde JS -->
+    </section>
+
+    <section class="table-wrap">
+      <div id="status" class="status" role="status" aria-live="polite">Loading data…</div>
+      <table id="dataTable" class="data-table" hidden>
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>House</th>
+            <th>Level</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <small>Powered by <code>houses_from_toJSON_template1_latest.json</code></small>
+  </footer>
 
   <script src="./app.js" defer></script>
 </body>
