@@ -1,0 +1,2153 @@
+{
+  "HOUSES": {
+    "Aegir": {
+      "HS": [
+        {
+          "Student Name": "AGUILAR BARRIOS, SANDRA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "AGUILAR ZINSER GOJON, CAMILA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "AGUIRRE REYES, VICTOR JAVIER",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "BRISEÑO SEGOVIA, GERARDO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CANTU BETANCOURT, RICARDO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CASTILLO DE LA TORR, MARIA RENEE",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CASTILLO DE LA TORRE, HOMERO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CORONA CARREON, MARIA ROMINA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "DAVILA VILLARREAL, SANTIAGO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "DEL RIO TERRAZAS, CAROLINA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "DIAZ HENRY LIMON, CARLOS ALBERTO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "FAYAD PEREZ, FRIDA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "FERNANDEZ ZAVALA, MARCELO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GARCIA VELAZQUEZ, MERCEDES",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GONZALEZ MORA, EMILIO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GONZALEZ ZAMORA, MIRANDA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GUTIERREZ PELAEZ, ANDREA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GUTIERREZ PELAEZ, BARBARA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "INGUANZO GOMEZ, EDUARDO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "INGUANZO GOMEZ, MARIA ISABEL",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "KAUACHI SALAZAR, LAILA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "MADARIA SALAZAR, MARCELA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "MARTINEZ SANTIAGO, CESAR FABIAN",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "NASTA SOSA, SELMA GUADALUPE",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "OCHOA LIMON, ANA AMELIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "OCHOA LIMON, MARIA JOSE",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "ORGANISTA GOVELA, ROMMEL",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "ORTEGA LOZANO, CARLOS",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "PAREDES FLORES, DENISSE",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "PEREZ GRAMOND ALMEIDA, SALLY ISABELLA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "PEREZ PONTONES, IGNACIO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "PIMIENTA LARRAGA, JOSE ANGEL",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "PONTONES REYNA, FERNANDO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "RABAGO ARIAS, MARIA ANDREA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "RAVIZE GUTIERREZ DE LARA, EUGENIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "REYES ALFARO, ISABEL",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "REYES DE LA FUENTE, VICTOR LUIS",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "RIVERA GUTIERREZ, JORGE",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "RODRIGUEZ CASE, ALEJANDRO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SAINZ SANMIGUEL, CAMILA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SALAZAR CABALLERO, MARIA CYNTHIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SALAZAR EDGAR, SERGIO ANTONIO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SALAZAR PONCE, FERNANDO SANTINO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SALAZAR ZARCO, BINDA CAMILA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SALDIVAR ARGUELLO, ROMINA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SANCHEZ MIRANDA, ANISSA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SARMIENTO ARIAS, MARIANO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SHAHIN PEREZ, EMILIO ZAMIR",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SUNG, JUNGWON",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "VALDES RIVERA, MARIANA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "VELASCO GONZALEZ, DULCE MARIANA",
+          "email": "",
+          "Female/male": ""
+        }
+      ],
+      "MS": [
+        {
+          "Student Name": "Gutiérrez Septién, Luciana",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Hanun Coutiño, Isabella",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Leal Rodríguez, Lorenzo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Lee, Jimin",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Organista Aguilar, Fabiana",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Ortega Lozano, Dana",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Pérez Berman, Ramón",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Pérez Rocha, María José",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Pimienta Lárraga, Camila Zuriel",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Ponce Deschamps, Regina",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Prieto Espinosa, Mario Jacobo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Quintero Silva, Gina Mariana",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Ramírez Ayala, Diego Eduardo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Ramírez Jiménez, Miguel Angel",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Ramírez Lozano, Bárbara",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Ramírez Montes, Adrian",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Ramos Bosch, Mariana",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Ramos Gutiérrez, Daniela",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Ravizé Castañón, Inés",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Ravizé Gutiérrez de Lara, Pablo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Renk Lartigue, Max Enrique",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Reyes Alfaro, Cesar",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Reynaga Salas, Mariana",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Rivera Gutiérrez, Alejandra",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Rivera Moses, Laura María",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Robles Juárez, Santiago",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Rodríguez Haces, Sergio",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Rojas Gómez, Ricardo Uriel",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Romo Aguilar, Ana Fernanda",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Rosano Delsol, Roberto",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Rubalcava González, Jorge",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Sáinz Sanmiguel, Pablo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Salazar Caballero, Elisa",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Salazar Castro, María Isabel",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Salazar Edgar, Scarlett",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Salazar Ponce, Julieta Almudena",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Salazar Zarco, Javier",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Saldívar Argüello, Gil",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Sánchez Vallejo, Natalia",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Santos Coy Portes, Mia Elizabeth",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Septien Durán, Juan Pablo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Shahin Pérez, Rodrigo Monir",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Simón Mina, Luis Antonio",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Sosa Pohl Solís, André Nicolás",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Sung, Chaewon",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Tamayo Busutil, Mia Victoria",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Torres Rock, Ana Claudia",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Valdés Domínguez, Isabella",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Valdés Domínguez, Jose Carlos",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Valles Suarez, Andres",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Varela Anda, Andrés",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Velasco González, Duncan Javier",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Verteramo De la Garza, Carlos Santiago",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Verteramo De la Garza, Constanza",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Vila Di Costanzo, Jorge Adrián",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Villegas Navarro, Luis Carlos",
+          "email": "",
+          "Female/male": ""
+        }
+      ]
+    },
+    "Pelagia": {
+      "HS": [
+        {
+          "Student Name": "ALTAMIRANO ZUÑIGA, ANA REGINA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "ARIAS MARTINEZ, JAVIER",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "BRAÑA MUÑOZ, JULIA MARIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CARDENAS BERNAL, ANDREA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CASTILLO ROJAS, LUCIANA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CAVAZOS MACIAS, MARIO ALBERTO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "COX MCHAN, KATHERINE KELLY",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "DE LUNA RAMIREZ, EMILIANO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "FILIZOLA JURGENSEN, MATIAS",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "FLORES LEAL, ANELIZA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GAMEZ ROMAN, CAROLINA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GARCIA MAURY, ANDREA JOSE",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GROSSMANN JOERS, JOHANNA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GUIRAO PEREZ, LIAM SANTIAGO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GUTIERREZ ANDRESEN, ANDREA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GUTIERREZ PEREZ, MARIA FERNANDA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GUZMAN ARCELUS, MATEO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GUZMAN ARCELUS, RODRIGO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "HERNANDEZ AGUILAR, DANIEL",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "HERNANDEZ BAS, RICARDO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "HIDALGO GONZALEZ, XIMENA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "HINOJOSA CASTRO, BARBARA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "JIMENEZ GEREZ, ENRIQUE ALEJANDRO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "KING DEL OLMO, MARIA JOAQUINA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "KURI EICHELMANN, ISABELLA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "LARA CARDENAS, ADOLFO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "LARA CARDENAS, NORA JULISSA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "LATOFSKI ECHEVERRIA, HELLEN",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "LOBATO DE LEON, MARIANO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "LOM GALINDO, VALERIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "LOMBARDI POSSAMAI, MATIAS LUCIO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "LOPEZ GAMEZ, PABLO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "LUNA MORALES, MARIA REGINA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "MANZUR GARZA, ALONSO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "MARABOTO MARTELL, NATALIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "MORA GONZALEZ, JULIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "MUELA SANCHEZ, ROMINA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "NIAVES PRIEGO, LUIS RAUL",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "OCHOA ALBO, ISAAC ALEJANDRO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "OCHOA PINEDA, DIEGO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "ORGANISTA RAMIREZ, GUSTAVO ADOLFO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "OROPEZA ROSARIO, MARCO ANTONIO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "OSEGUERA ORGANISTA, REGINA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "PAREDES MENCHACA, RODRIGO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "POZO HERNANDEZ, MATIAS",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "RAVIZE TREVIÑO, ANIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "ROSAS GARCIA, RENATA BETZABE",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SCHEKAIBAN ENRIQUEZ, MARIA ISABEL",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SCHEKAIBAN ENRIQUEZ, MATEO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "TLAPANCO REYES, ZURY",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "VAZQUEZ GALLEGOS, MELINA TIARET",
+          "email": "",
+          "Female/male": ""
+        }
+      ],
+      "MS": [
+        {
+          "Student Name": "Bastardo Silva, Jorge Luis",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Gámez Román, Alejandra",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Gómez Montalvo, Mariano",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Gómez Rivera, David",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Grossmann Joers, Catalina",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Guirao Pérez, Sebastián",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Gutiérrez Andresen, Carlos Humberto",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Gutiérrez Peláez, David",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Gutiérrez Rodríguez, Carlos Jesús",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Hamelius Ramos, Rodolfo Efren",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Hernández Aguilar, Luis Emilio",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Hernández Garza, Eduardo Alberto",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Hernández González, Paloma",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Hernández Ortiz, Emiliano",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Herrera García, Sebastián",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Hidalgo González, Camila",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Hinojosa Castro, María José",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Hinojosa Vallejo, Miguel Fabian",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Illescas García, Melanie",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Jiménez Arenas, Carmina",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Jiménez Gerez, Ana Regina",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "King Del Olmo, Patricio",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Kuri Eichelmann, Monir",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Lacio Belfort, Ana Constanza",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Laddaga Septién, Juan Antonio",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Latofski Aguiar, Ana Sofía",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Latofski Echeverría, Walter",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Leal Luna, Santiago",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Lom Galindo, Carlos Alfredo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Longoria Sánchez, Jimena Alejandra",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "López Gámez, Paola",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Luna Morales, Jorge",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Macouzet Pérez, Miranda",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Macouzet Perez, Santiago",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Madero Ochoa, Alberto Javier",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Manzur Díaz, María Inés",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Manzur Garza, Gonzalo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Maraboto Martell, Nuria",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Marón Durán, Elsa Mariam",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Martínez Garibaldi, Ana Camila",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Mendoza Latofski, Joleen Rose",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Meraz Del Angel, Manuel",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Mora González, Paula",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Morales Hernández, Mónica Lucía",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Morales Valdez, Miranda",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Moreno Gámez, Tristan Jorge",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Muela Sánchez, Regina",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Nader Conde, Valentina",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Nader Galicia, Juan Jesús",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Niaves Priego, Mariano",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Organista Ramírez, José Andrés",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Organista Sandoval, Ava",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Oropeza Rosario, María Andrea",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Ramírez Sánchez, Tadeo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Reyes de la Fuente, Barbara Elena",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Rodríguez Garza Laguëra, Catalina",
+          "email": "",
+          "Female/male": ""
+        }
+      ]
+    },
+    "Kai": {
+      "HS": [
+        {
+          "Student Name": "AGUILAR CORRIPIO, RICARDO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "BARRIGUETE LEDO, GRECIA PAULETTE",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CANTU VILLARREAL, ANA VICTORIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CANTU VILLARREAL, JOSE DANIEL",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CARDENAS CEDILLO, VALERIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CASILLAS VELA, FRIDA MARIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CASTAÑEDA CERECEDO, FATIMA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CEJA ZARZAR, ALEXANDER",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CEJA ZARZAR, ANTONIO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CEPEDA LARA, DAIRA DANIELA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CULOTTA CELESTINO, SOFIA ELIZABETH",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "DE IBARRA ROBLES, CONSTANZA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "DE IBARRA ROBLES, FRIDA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "DEL TORO VELA, DIEGO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "FERNANDEZ EICHELMANN, MARIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "FERNANDEZ EICHELMANN, MATIAS",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GALAN ASOMOZA, ANA CRISTINA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GALAN ASOMOZA, CARLOS AUGUSTO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GALAN ASOMOZA, EDUARDO ANTONIO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GARCIA BLAKELY, ANGEL RAFAEL",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GARCIA MARTINEZ, EMILIANO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GARCIA SAUCEDO, MAYA FEDERICA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GIRON ESPINOSA, RODRIGO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GONZALEZ JONES, IVANNA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GONZALEZ MARON, ANA VICTORIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "HERNANDEZ CARDIN, ELISA MARIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "HERNANDEZ TORRES, ALDO RUBEN",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "HERRERA MARTINEZ, ALBERTO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "LEGORRETA PEREZ, NATASHA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "MARQUEZ CARDENAS, OSCAR",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "MEZA MOSES, JULIAN EDUARDO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "MIGUEL GARZA, EDGAR",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "NARANJO MARTINEZ, GERARDO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "OLIVER MARTINEZ, ANA CAMILA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "ORNELAS CUADRA, JOSE LUIS",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "PAREDES PONTONES, MELISSA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "PEREZ ALEMAN, EMILIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "PEREZ CONTRERAS, ANA SOFIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "PEREZ CONTRERAS, VALERIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "PEREZ HERRERA, GAEL ALEXANDRO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "PICHARDO GARCIA, LUIS ROBERTO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "RAMOS FERNANDEZ, GONZALO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "REYES CONTRERAS, SOFIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "RODRIGUEZ PEÑAFLOR, HANNAH",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SABINO PIZAÑA, ISABELLA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SALINAS LEYVA, CHELSEA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SEGOVIA HANUN, SONIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "TORRES ZUÑIGA, IZEL VALERIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "TREVIÑO ARENAS, DIEGO ARMANDO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "UREÑA CARDIN, ANA PAOLA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "UREÑA CARDIN, MAURICIO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "VELAZQUEZ VEGA, ALEXA",
+          "email": "",
+          "Female/male": ""
+        }
+      ],
+      "MS": [
+        {
+          "Student Name": "Aguilar Corripio, Andrés",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Aguilar Corripio, Mariano",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Amador Manrique, Juan Carlos",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Amador Manrique, Valentina",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Casanova Rodríguez, Alberto",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Casanova Rodríguez, María Valentina",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Casillas Vela, Antonio",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Casillas Vela, Paulina",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Castañeda Cerecedo, Jesús Everardo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Castañeda Cerecedo, Valentina",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Del Toro Cabal, Alejandro",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Del Toro Cabal, Manuel",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Elizondo Elizondo, Isabella",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Elizondo Elizondo, Sofía",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "García Blakely, Francisco Tadeo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "García Blakely, Mariel",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "García Loyola, Ana Carolina",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "García Loyola, José Angel",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "García Loyola, María Fernanda",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "González Jones, Fabianna",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "González Marón, Maria Eliza",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Lárraga Sánchez, Celeste",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Lárraga Sánchez, Samuel",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Leiva Govela, Patricio",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Miguel Garza, Leonardo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Miguel Garza, Luisa",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Muñoz Latofski, Anya",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Muñoz Latofski, Gabriel",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Muralles Payán, Amelia Alejandra",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Muralles Payán, Emilio André",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Nasrallah Hage, Jaqueline",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Nasrallah Hage, Nicolás",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Nemer Molina, Nicolas",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Nemer Molina, Saira",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Oviedo-Edgar, María Almudena",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Oviedo-Edgar, Mauro",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Pacheco San Román Delgado, Carlos",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Pacheco San Román Delgado, Porfirio",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Pérez Trueba, Ana Victoria",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Pérez Trueba, Elena Carolina",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Pérez Trueba, Roberto",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Pichardo García, José Raúl",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Pichardo García, Juan Pablo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Prom Castro, Andrea",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Prom Castro, Paulina",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Rodríguez Cantú, Alexia Anahí",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Rodríguez Cantú, Arlette Alexandra",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Romero Reyes, Jorge",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Romero Reyes, Máximo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Romero Reyes, Santino",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Sanmiguel Corripio, Regina",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Sanmiguel Corripio, Santiago",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Santos Sánchez, Fernando",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Santos Sánchez, Reynaldo",
+          "email": "",
+          "Female/male": ""
+        }
+      ]
+    },
+    "Nerida": {
+      "HS": [
+        {
+          "Student Name": "AGUILAR VALENCIA, LIV IVANA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "AGUIRRE SABBATINI, JORGE EMILIO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "ALONSO GARCIA, ANTONINO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "ALTAMIRANO DAVILA, IVANNA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "BALDERAS VILLEGAS, XIMENA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "BECHT GONZALEZ, JUSTIN",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "BERNAL FLORES, JOSE RAMON",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CADENA AVILA, ISABELLA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CASADOS CUADRA, ALEJANDRO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CASILLAS MEDRANO, MARCELO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CASILLAS MEDRANO, RENATA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CASILLAS MEDRANO, ROBERTA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CHIMELY ILLESCAS, ALEJANDRA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CHIMELY ILLESCAS, KARIM",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "CONTRERAS QUINTANILLA, LORETA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "DE LA SERNA BERLANGA, ANA CECILIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "DELGADO QUIROGA, ALBERTO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "EICHELMANN GONZALEZ, EDUARDO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "EICHELMANN SABBATINI, DIEGO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "ELIZONDO LEAL, LEANDRO VALENTIN",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GARCIA LOPEZ, VALENTINA RICARDA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GARZA AILLOUD, ANABELLA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GARZA HERNANDEZ, ALDA PAULINA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GATICA GOCHICOA, JULIA MIREYA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GONZALEZ EVARISTO, DIEGO ALFONSO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GONZALEZ HERNANDEZ, NORAH ISABELLA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GONZALEZ HERRERA, NATALIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GONZALEZ QUINTANILLA, MIRANDA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GONZALEZ SALGADO, DANIEL",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "GONZALEZ VILLARREAL, LUIS FERNANDO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "HERNANDEZ GARCIA, RENATA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "JIMENEZ SAADE, JULIAN",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "LACORTE MENNAH, FATIMA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "MARTINEZ HERNANDEZ, YUSSEF SALEH",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "MARTINEZ LAMAZZI, SERGIO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "MARTINEZ RODRIGUEZ, ANA SOFIA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "MIJANGOS VALENZUELA, CAMILA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "ORELLANA MORELEON, GERARDO ANGEL",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "ORTIZ CARRANZA, CARLOS ENRIQUE",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "PEREZ DELGADO, SANTIAGO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "PEREZ DURAN, BERNARDO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "PICHARDO PEÑA, CARLOS ALBERTO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "POPA OLIVELLA, DIEGO ALEXANDER",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "REYES CRUZ, CARLOS EDUARDO",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SANCHEZ ADAME, RODRIGO MIGUEL",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SIERRA GOVELA, JAVIER",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "SILVA GARCIA, MARIA INES",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "STILES LOMELI, LETICIA ANDREA",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "TREVIÑO JUAREZ, ENRIQUE",
+          "email": "",
+          "Female/male": ""
+        }
+      ],
+      "MS": [
+        {
+          "Student Name": "Adame Lorenzo, Jimena",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Aguayo Lomelín, Eugenia",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Aguilar Chávez, José Javier",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Aguirre Sabbatini, Gonzalo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Almeida Castro, Carlos Eduardo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Alonso García, Lucía",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Altamirano Angulo, Elena",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Altamirano Dávila, Bárbara",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Alvarado Rodríguez, Ana Lucía",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Barnetche Suárez, Fernando",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Barreda Flores, Carlos Antonio",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Benabe Luengas, Emiliano Maximus",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Bernal Flores, Ricardo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Berzunza Sandoval, Frida",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Betancourt Argüello, Hallet",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Blanco Hernández, Ferrán",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Cadena Avila, Sofía",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Calles Garza, Sofía",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Canaán Malibrán, Máriam",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Cano Sánchez, Carlos Alexis",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Chávez Mejía, Carlota",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Contreras González, Regina",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Contreras Quintanilla, Cordelia",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Cortés García, Marco",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Crespo Ibarra, Eva",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Cruz Narváez, Ofelia",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Danini Mitchell, Jorge Joseph",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Del Toro Vela, Alejandro",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Deschamps Ceja, Sebastian",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Deutsch Hamelius, Alejandro",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Díaz Romero, Abner",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Díaz Rosales, Mariel",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Edgar Moses, Jorge Horacio",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Eichelmann González, Germán",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Elizondo Leal, Carmen María",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Fernández Flores, Mariam",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Fernández Yáñez, Jaime",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Galván Suárez, Valentina",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "García Ramos Romero, Ana Victoria",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Garza Hernández, Aldo Santiago",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Garza Orozco, Alvaro José",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Gatica Gochicoa, Mariana Marcela",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Godínez Segura, María José",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "González Evaristo, Bárbara",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "González Hernández, Leopoldo Enrique",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "González Herrera, Camila",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "González Hidalgo, Luis Gerardo",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "González Nájera, Demián",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "González Quintanilla, Gustavo Wistano",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "González Sánchez, María José",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Silva García, Sandra",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Simón González, Maximiliano Modesto",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Simón González, Patricio Antonio",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Terán Ochoa, Alexandra",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Terán Ochoa, Daniel",
+          "email": "",
+          "Female/male": ""
+        },
+        {
+          "Student Name": "Velázquez Biagi, Victoria",
+          "email": "",
+          "Female/male": ""
+        }
+      ]
+    }
+  }
+}
