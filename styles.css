@@ -7,6 +7,11 @@
   --border:#1f2937;
   --ok:#10b981;
   --danger:#ef4444;
+
+  /* loader / orbit sizes */
+  --orbit-size: 280px;
+  --orbit-radius: 110px; /* distance from center to icons */
+  --orbit-speed: 8s;     /* full rotation time */
 }
 
 *{ box-sizing: border-box; }
@@ -19,23 +24,46 @@ body{
   font: 16px/1.5 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", sans-serif;
 }
 
+/* ---------- header / arc ---------- */
 .hero{
-  max-width:900px; margin:28px auto 0; padding:0 16px; text-align:center;
+  max-width:1000px; margin:28px auto 0; padding:0 16px; text-align:center;
 }
-.hero h1{
-  margin:0 0 8px;
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
+.title{
+  margin:0;
+  font-size: clamp(1.8rem, 4.8vw, 2.8rem);
   letter-spacing:.02em;
 }
-.arc-wrap{ margin: 6px auto 0; width:min(640px, 90vw); }
-.arc-svg{ width:100%; height:auto; }
-.arc-text{
-  fill: var(--muted);
-  font-weight: 600;
-  letter-spacing: .08em;
+
+/* ensure no collision: arc box has top margin */
+.arc-wrap{
+  position: relative;
+  width:min(900px, 92vw);
+  margin: 16px auto 0;
+  padding-top: 8px;
 }
 
-.container{ max-width:900px; margin: 12px auto 40px; padding: 0 16px; }
+/* emblem centered at arc apex */
+.arc-emblem{
+  position:absolute;
+  left:50%; top:8px; transform: translateX(-50%);
+  width:72px; height:72px; object-fit:contain;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,.35));
+  pointer-events:none;
+}
+
+.arc-svg{
+  width:100%; height:auto; display:block;
+  pointer-events:none; /* purely decorative */
+}
+.arc-text{
+  fill: var(--muted);
+  font-weight: 700;
+  letter-spacing: .1em;
+  font-size: 16px;
+}
+
+/* ---------- main ---------- */
+.container{ max-width:900px; margin: 18px auto 40px; padding: 0 16px; }
 
 .lookup{
   background: rgba(255,255,255,.03);
@@ -68,33 +96,6 @@ body{
 .hint{ text-align:center; color:var(--muted); margin:.5rem 0 0; }
 .error{ text-align:center; color: var(--danger); margin:.5rem 0 0; }
 
-.loader{
-  margin-top: 18px; text-align:center;
-  background: var(--panel);
-  border:1px solid var(--border);
-  border-radius: 14px; padding: 22px;
-}
-.spinner{
-  display:grid; grid-template-columns: repeat(4, 1fr); gap:12px;
-  align-items:center; justify-items:center;
-}
-.spinner img{
-  width: 100%; max-width: 120px; aspect-ratio: 1/1; object-fit: contain;
-  animation: spin 3.2s linear infinite;
-  filter: drop-shadow(0 6px 10px rgba(0,0,0,.35));
-}
-.spinner img:nth-child(2){ animation-delay: .2s }
-.spinner img:nth-child(3){ animation-delay: .4s }
-.spinner img:nth-child(4){ animation-delay: .6s }
-
-@keyframes spin {
-  0% { transform: rotate(0deg); opacity:.8 }
-  50% { opacity:1 }
-  100% { transform: rotate(360deg); opacity:.8 }
-}
-
-.loading-text{ margin: 10px 0 0; color: var(--muted); }
-
 .result{
   margin-top: 18px; text-align:center;
   background: var(--panel);
@@ -103,7 +104,7 @@ body{
   animation: fadeIn .4s ease-out both;
 }
 .house-img{
-  max-width: 220px; width: 60%; height:auto;
+  max-width: 240px; width: 60%; height:auto;
   filter: drop-shadow(0 10px 16px rgba(0,0,0,.35));
 }
 .student-name{ margin:.7rem 0 0; font-size: clamp(1.3rem, 3.2vw, 2rem); }
@@ -114,11 +115,67 @@ body{
   max-width:900px; margin:20px auto 40px; padding:0 16px; text-align:center; color: var(--muted);
 }
 
+/* ---------- modal loader (overlay) ---------- */
+.modal[hidden]{ display:none !important; }
+.modal{
+  position: fixed; inset: 0; z-index: 50;
+  display:grid; place-items:center;
+}
+.modal-backdrop{
+  position:absolute; inset:0; background:rgba(0,0,0,.55);
+  backdrop-filter: blur(2px);
+}
+.modal-content{
+  position:relative; z-index:1;
+  width:min(92vw, 560px);
+  border-radius:16px; border:1px solid var(--border);
+  background: #0d1427;
+  padding: 22px;
+  text-align:center;
+  box-shadow: 0 24px 80px rgba(0,0,0,.35);
+  animation: pop .2s ease-out both;
+}
+.modal-title{
+  margin:0 0 12px; font-weight:800; letter-spacing:.02em;
+}
+.loading-text{ color: var(--muted); margin:.5rem 0 0 }
+
+/* orbit container rotates; children are placed at a fixed radius */
+.orbit{
+  position:relative; width: var(--orbit-size); height: var(--orbit-size);
+  margin: 8px auto 6px;
+  animation: orbitSpin var(--orbit-speed) linear infinite;
+}
+.orbit-item{
+  position:absolute; left:50%; top:50%;
+  width: 86px; height:86px; object-fit:contain;
+  transform:
+    rotate(var(--ang))
+    translate(var(--orbit-radius))
+    rotate(calc(-1 * var(--ang)));
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,.35));
+}
+.orbit-center{
+  position:absolute; left:50%; top:50%;
+  width: 12px; height:12px; border-radius:50%;
+  background: #1e293b; border:1px solid #334155;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes orbitSpin { to { transform: rotate(360deg) } }
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(6px) }
   to { opacity: 1; transform: translateY(0) }
 }
+@keyframes pop {
+  from { opacity:0; transform: translateY(6px) scale(.98) }
+  to   { opacity:1; transform: translateY(0) scale(1) }
+}
 
 @media (max-width:720px){
-  .spinner{ grid-template-columns: repeat(2,1fr); }
+  :root{
+    --orbit-size: 240px;
+    --orbit-radius: 95px;
+  }
 }
