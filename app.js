@@ -1,144 +1,181 @@
-// ====== Config ======
-const JSON_URL = "./houses_from_toJSON_template1_latest.json"; // keep in same folder
-const LOADING_DURATION_MS = 5000;
+:root{
+  --bg:#0b1222;
+  --panel:#0f172a;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --accent:#22d3ee;
+  --border:#1f2937;
+  --ok:#10b981;
+  --danger:#ef4444;
 
-// House crest images (replace paths if needed)
-const HOUSE_IMAGES = {
-  "Aegir": "./img/house-aegir.png",
-  "Pelagia": "./img/house-pelagia.png",
-  "Kai": "./img/house-kai.png",
-  "Nerida": "./img/house-nerida.png"
-};
-
-// ====== State ======
-const state = {
-  list: [],      // flat records {name,email,gender,house,level}
-  nameIndex: {}  // normalized name -> [records]
-};
-
-// ====== Utils ======
-const $ = (sel) => document.querySelector(sel);
-
-function normalizeStr(s){
-  return String(s || "")
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .trim();
+  /* loader / orbit sizes */
+  --orbit-size: 280px;
+  --orbit-radius: 110px; /* distance from center to icons */
+  --orbit-speed: 8s;     /* full rotation time */
 }
 
-function flattenData(db){
-  const out = [];
-  const H = db?.HOUSES || {};
-  for (const house of ["Aegir","Pelagia","Kai","Nerida"]) {
-    const levels = H[house] || {};
-    for (const level of ["MS","HS"]) {
-      const arr = Array.isArray(levels[level]) ? levels[level] : [];
-      for (const r of arr) {
-        out.push({
-          name: r["Student Name"] ?? r["name"] ?? "",
-          email: r["email"] ?? "",
-          gender: r["Female/male"] ?? r["gender"] ?? "",
-          house,
-          level
-        });
-      }
-    }
+*{ box-sizing: border-box; }
+html,body{ height:100%; margin:0; }
+body{
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #0d1427 10%, var(--bg) 60%),
+    var(--bg);
+  color:var(--text);
+  font: 16px/1.5 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", sans-serif;
+}
+
+/* ---------- header / arc ---------- */
+.hero{
+  max-width:1000px; margin:28px auto 0; padding:0 16px; text-align:center;
+}
+.title{
+  margin:0;
+  font-size: clamp(1.8rem, 4.8vw, 2.8rem);
+  letter-spacing:.02em;
+}
+
+/* ensure no collision: arc box has top margin */
+.arc-wrap{
+  position: relative;
+  width:min(900px, 92vw);
+  margin: 16px auto 0;
+  padding-top: 8px;
+}
+
+/* emblem centered at arc apex */
+.arc-emblem{
+  position:absolute;
+  left:50%; top:8px; transform: translateX(-50%);
+  width:72px; height:72px; object-fit:contain;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,.35));
+  pointer-events:none;
+}
+
+.arc-svg{
+  width:100%; height:auto; display:block;
+  pointer-events:none; /* purely decorative */
+}
+.arc-text{
+  fill: var(--muted);
+  font-weight: 700;
+  letter-spacing: .1em;
+  font-size: 16px;
+}
+
+/* ---------- main ---------- */
+.container{ max-width:900px; margin: 18px auto 40px; padding: 0 16px; }
+
+.lookup{
+  background: rgba(255,255,255,.03);
+  border:1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  backdrop-filter: blur(6px);
+}
+.input-row{
+  display:flex; gap:10px; align-items:center; justify-content:center;
+  flex-wrap: wrap;
+}
+#nameInput{
+  flex:1 1 360px; min-width:260px;
+  background: var(--panel); color: var(--text);
+  border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px 14px; outline: none;
+}
+.btn{
+  padding: 12px 16px; border-radius: 10px;
+  background: var(--accent); color:#001219; border:0; cursor:pointer;
+  font-weight:700;
+}
+.btn:hover{ filter:brightness(1.08); }
+.btn.secondary{
+  background:transparent; color:var(--text);
+  border:1px solid var(--border);
+}
+
+.hint{ text-align:center; color:var(--muted); margin:.5rem 0 0; }
+.error{ text-align:center; color: var(--danger); margin:.5rem 0 0; }
+
+.result{
+  margin-top: 18px; text-align:center;
+  background: var(--panel);
+  border:1px solid var(--border);
+  border-radius: 14px; padding: 22px;
+  animation: fadeIn .4s ease-out both;
+}
+.house-img{
+  max-width: 240px; width: 60%; height:auto;
+  filter: drop-shadow(0 10px 16px rgba(0,0,0,.35));
+}
+.student-name{ margin:.7rem 0 0; font-size: clamp(1.3rem, 3.2vw, 2rem); }
+.house-name{ margin:.25rem 0 0; color: var(--ok); font-size: clamp(1.1rem, 2.6vw, 1.6rem); }
+.congrats{ margin:.4rem 0 1rem; color: var(--muted) }
+
+.site-footer{
+  max-width:900px; margin:20px auto 40px; padding:0 16px; text-align:center; color: var(--muted);
+}
+
+/* ---------- modal loader (overlay) ---------- */
+.modal[hidden]{ display:none !important; }
+.modal{
+  position: fixed; inset: 0; z-index: 50;
+  display:grid; place-items:center;
+}
+.modal-backdrop{
+  position:absolute; inset:0; background:rgba(0,0,0,.55);
+  backdrop-filter: blur(2px);
+}
+.modal-content{
+  position:relative; z-index:1;
+  width:min(92vw, 560px);
+  border-radius:16px; border:1px solid var(--border);
+  background: #0d1427;
+  padding: 22px;
+  text-align:center;
+  box-shadow: 0 24px 80px rgba(0,0,0,.35);
+  animation: pop .2s ease-out both;
+}
+.modal-title{
+  margin:0 0 12px; font-weight:800; letter-spacing:.02em;
+}
+.loading-text{ color: var(--muted); margin:.5rem 0 0 }
+
+/* orbit container rotates; children are placed at a fixed radius */
+.orbit{
+  position:relative; width: var(--orbit-size); height: var(--orbit-size);
+  margin: 8px auto 6px;
+  animation: orbitSpin var(--orbit-speed) linear infinite;
+}
+.orbit-item{
+  position:absolute; left:50%; top:50%;
+  width: 86px; height:86px; object-fit:contain;
+  transform:
+    rotate(var(--ang))
+    translate(var(--orbit-radius))
+    rotate(calc(-1 * var(--ang)));
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,.35));
+}
+.orbit-center{
+  position:absolute; left:50%; top:50%;
+  width: 12px; height:12px; border-radius:50%;
+  background: #1e293b; border:1px solid #334155;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes orbitSpin { to { transform: rotate(360deg) } }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px) }
+  to { opacity: 1; transform: translateY(0) }
+}
+@keyframes pop {
+  from { opacity:0; transform: translateY(6px) scale(.98) }
+  to   { opacity:1; transform: translateY(0) scale(1) }
+}
+
+@media (max-width:720px){
+  :root{
+    --orbit-size: 240px;
+    --orbit-radius: 95px;
   }
-  return out;
 }
-
-function buildNameIndex(list){
-  const idx = {};
-  for (const r of list) {
-    const key = normalizeStr(r.name);
-    if (!idx[key]) idx[key] = [];
-    idx[key].push(r);
-  }
-  return idx;
-}
-
-function populateDatalist(list){
-  const dl = $("#nameList");
-  dl.innerHTML = list
-    .map(r => r.name)
-    .filter((v,i,arr)=> v && arr.indexOf(v)===i)
-    .sort((a,b)=>a.localeCompare(b))
-    .map(nm => `<option value="${nm}"></option>`)
-    .join("");
-}
-
-// UI helpers
-function hideError(){ $("#error").hidden = true; }
-function showError(msg){
-  const el = $("#error");
-  el.textContent = msg;
-  el.hidden = false;
-}
-
-function showModal(){ $("#loaderModal").hidden = false; }
-function hideModal(){ $("#loaderModal").hidden = true; }
-
-function renderResult(rec){
-  $("#houseImg").src = HOUSE_IMAGES[rec.house] || "";
-  $("#houseImg").alt = `House crest: ${rec.house}`;
-  $("#studentName").textContent = rec.name || "";
-  $("#houseName").textContent = rec.house || "";
-  $("#result").hidden = false;
-}
-
-// ====== Data init ======
-async function initData(){
-  const res = await fetch(JSON_URL, { cache: "no-store" });
-  if (!res.ok) throw new Error(`Cannot load JSON (HTTP ${res.status})`);
-  const data = await res.json();
-  state.list = flattenData(data);
-  state.nameIndex = buildNameIndex(state.list);
-  populateDatalist(state.list);
-}
-
-// match name (case/diacritic-insensitive)
-function findByName(input){
-  const key = normalizeStr(input);
-  if (state.nameIndex[key]) return state.nameIndex[key][0];
-  const partial = Object.keys(state.nameIndex).find(k => k.includes(key));
-  return partial ? state.nameIndex[partial][0] : null;
-}
-
-// ====== Events ======
-function bindEvents(){
-  $("#lookupForm").addEventListener("submit", (e)=>{
-    e.preventDefault();
-    hideError();
-
-    const name = $("#nameInput").value.trim();
-    if (!name) return showError("Please type your name.");
-
-    const rec = findByName(name);
-    if (!rec) return showError("Name not found. Pick from suggestions.");
-
-    // open modal loader, then reveal result after 5s
-    showModal();
-    setTimeout(()=>{
-      hideModal();
-      renderResult(rec);
-    }, LOADING_DURATION_MS);
-  });
-
-  $("#againBtn").addEventListener("click", ()=>{
-    $("#result").hidden = true;
-    $("#nameInput").value = "";
-    $("#nameInput").focus();
-    hideError();
-  });
-}
-
-// ====== Init ======
-document.addEventListener("DOMContentLoaded", async ()=>{
-  try{
-    await initData();
-  }catch(err){
-    showError(err.message || "Error loading data.");
-  }
-  bindEvents();
-});
