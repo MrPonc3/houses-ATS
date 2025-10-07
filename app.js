@@ -1,181 +1,303 @@
-:root{
-  --bg:#0b1222;
-  --panel:#0f172a;
-  --text:#e5e7eb;
-  --muted:#94a3b8;
-  --accent:#22d3ee;
-  --border:#1f2937;
-  --ok:#10b981;
-  --danger:#ef4444;
+/* ===== Config ===== */
+const JSON_URL = "./houses_from_toJSON_template1_latest.json"; // keep in the same folder as index.html
+const REVEAL_DELAY_MS = 6500;
+const MESSAGES = [
+  "#analizando tu perfil…",
+  "#indagando en tu historial…",
+  "cargando respuesta…"
+];
 
-  /* loader / orbit sizes */
-  --orbit-size: 280px;
-  --orbit-radius: 110px; /* distance from center to icons */
-  --orbit-speed: 8s;     /* full rotation time */
-}
+/* House crest images */
+const HOUSE_IMAGES = {
+  Aegir: "./img/house-aegir.png",
+  Pelagia: "./img/house-pelagia.png",
+  Kai: "./img/house-kai.png",
+  Nerida: "./img/house-nerida.png",
+};
 
-*{ box-sizing: border-box; }
-html,body{ height:100%; margin:0; }
-body{
-  background:
-    radial-gradient(1200px 600px at 50% -10%, #0d1427 10%, var(--bg) 60%),
-    var(--bg);
-  color:var(--text);
-  font: 16px/1.5 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", sans-serif;
-}
+/* ===== State ===== */
+const state = {
+  list: [],        // [{name,email,gender,house,level}]
+  nameIndex: {},   // normalized name -> [records]
+  initialized: false,
+};
 
-/* ---------- header / arc ---------- */
-.hero{
-  max-width:1000px; margin:28px auto 0; padding:0 16px; text-align:center;
-}
-.title{
-  margin:0;
-  font-size: clamp(1.8rem, 4.8vw, 2.8rem);
-  letter-spacing:.02em;
-}
+/* ===== Utilities ===== */
+const $ = (sel) => document.querySelector(sel);
 
-/* ensure no collision: arc box has top margin */
-.arc-wrap{
-  position: relative;
-  width:min(900px, 92vw);
-  margin: 16px auto 0;
-  padding-top: 8px;
-}
-
-/* emblem centered at arc apex */
-.arc-emblem{
-  position:absolute;
-  left:50%; top:8px; transform: translateX(-50%);
-  width:72px; height:72px; object-fit:contain;
-  filter: drop-shadow(0 6px 10px rgba(0,0,0,.35));
-  pointer-events:none;
-}
-
-.arc-svg{
-  width:100%; height:auto; display:block;
-  pointer-events:none; /* purely decorative */
-}
-.arc-text{
-  fill: var(--muted);
-  font-weight: 700;
-  letter-spacing: .1em;
-  font-size: 16px;
-}
-
-/* ---------- main ---------- */
-.container{ max-width:900px; margin: 18px auto 40px; padding: 0 16px; }
-
-.lookup{
-  background: rgba(255,255,255,.03);
-  border:1px solid var(--border);
-  border-radius: 14px;
-  padding: 16px;
-  backdrop-filter: blur(6px);
-}
-.input-row{
-  display:flex; gap:10px; align-items:center; justify-content:center;
-  flex-wrap: wrap;
-}
-#nameInput{
-  flex:1 1 360px; min-width:260px;
-  background: var(--panel); color: var(--text);
-  border: 1px solid var(--border); border-radius: 10px;
-  padding: 12px 14px; outline: none;
-}
-.btn{
-  padding: 12px 16px; border-radius: 10px;
-  background: var(--accent); color:#001219; border:0; cursor:pointer;
-  font-weight:700;
-}
-.btn:hover{ filter:brightness(1.08); }
-.btn.secondary{
-  background:transparent; color:var(--text);
-  border:1px solid var(--border);
-}
-
-.hint{ text-align:center; color:var(--muted); margin:.5rem 0 0; }
-.error{ text-align:center; color: var(--danger); margin:.5rem 0 0; }
-
-.result{
-  margin-top: 18px; text-align:center;
-  background: var(--panel);
-  border:1px solid var(--border);
-  border-radius: 14px; padding: 22px;
-  animation: fadeIn .4s ease-out both;
-}
-.house-img{
-  max-width: 240px; width: 60%; height:auto;
-  filter: drop-shadow(0 10px 16px rgba(0,0,0,.35));
-}
-.student-name{ margin:.7rem 0 0; font-size: clamp(1.3rem, 3.2vw, 2rem); }
-.house-name{ margin:.25rem 0 0; color: var(--ok); font-size: clamp(1.1rem, 2.6vw, 1.6rem); }
-.congrats{ margin:.4rem 0 1rem; color: var(--muted) }
-
-.site-footer{
-  max-width:900px; margin:20px auto 40px; padding:0 16px; text-align:center; color: var(--muted);
-}
-
-/* ---------- modal loader (overlay) ---------- */
-.modal[hidden]{ display:none !important; }
-.modal{
-  position: fixed; inset: 0; z-index: 50;
-  display:grid; place-items:center;
-}
-.modal-backdrop{
-  position:absolute; inset:0; background:rgba(0,0,0,.55);
-  backdrop-filter: blur(2px);
-}
-.modal-content{
-  position:relative; z-index:1;
-  width:min(92vw, 560px);
-  border-radius:16px; border:1px solid var(--border);
-  background: #0d1427;
-  padding: 22px;
-  text-align:center;
-  box-shadow: 0 24px 80px rgba(0,0,0,.35);
-  animation: pop .2s ease-out both;
-}
-.modal-title{
-  margin:0 0 12px; font-weight:800; letter-spacing:.02em;
-}
-.loading-text{ color: var(--muted); margin:.5rem 0 0 }
-
-/* orbit container rotates; children are placed at a fixed radius */
-.orbit{
-  position:relative; width: var(--orbit-size); height: var(--orbit-size);
-  margin: 8px auto 6px;
-  animation: orbitSpin var(--orbit-speed) linear infinite;
-}
-.orbit-item{
-  position:absolute; left:50%; top:50%;
-  width: 86px; height:86px; object-fit:contain;
-  transform:
-    rotate(var(--ang))
-    translate(var(--orbit-radius))
-    rotate(calc(-1 * var(--ang)));
-  filter: drop-shadow(0 6px 10px rgba(0,0,0,.35));
-}
-.orbit-center{
-  position:absolute; left:50%; top:50%;
-  width: 12px; height:12px; border-radius:50%;
-  background: #1e293b; border:1px solid #334155;
-  transform: translate(-50%, -50%);
-}
-
-@keyframes orbitSpin { to { transform: rotate(360deg) } }
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px) }
-  to { opacity: 1; transform: translateY(0) }
-}
-@keyframes pop {
-  from { opacity:0; transform: translateY(6px) scale(.98) }
-  to   { opacity:1; transform: translateY(0) scale(1) }
-}
-
-@media (max-width:720px){
-  :root{
-    --orbit-size: 240px;
-    --orbit-radius: 95px;
+function assertEl(el, idOrDesc) {
+  if (!el) {
+    console.error(`❌ Missing element: ${idOrDesc}. Check your HTML id/class.`);
+    throw new Error(`Missing element: ${idOrDesc}`);
   }
+  return el;
 }
+
+function normalize(s) {
+  return String(s || "")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+}
+
+function flattenData(db) {
+  // Expect: { HOUSES: { Aegir: {MS:[...], HS:[...]}, ... } }
+  if (!db || !db.HOUSES) {
+    console.error("❌ JSON shape invalid. Expecting { HOUSES: { Aegir: {MS:[], HS:[]}, ... } }.");
+    return [];
+  }
+  const out = [];
+  const H = db.HOUSES || {};
+  const houses = ["Aegir", "Pelagia", "Kai", "Nerida"];
+  const levels = ["MS", "HS"];
+
+  for (const house of houses) {
+    const bucket = H[house];
+    if (!bucket) {
+      console.warn(`⚠️ House "${house}" not present in JSON.HOUSES (ok, continuing).`);
+      continue;
+    }
+    for (const level of levels) {
+      const arr = Array.isArray(bucket[level]) ? bucket[level] : [];
+      for (const r of arr) {
+        out.push({
+          name: r["Student Name"] ?? r["name"] ?? "",
+          email: r["email"] ?? "",
+          gender: r["Female/male"] ?? r["gender"] ?? "",
+          house,
+          level,
+        });
+      }
+    }
+  }
+  console.log(`✅ Flattened records: ${out.length}`);
+  return out;
+}
+
+function buildNameIndex(list) {
+  const idx = {};
+  for (const r of list) {
+    const key = normalize(r.name);
+    if (!key) continue;
+    if (!idx[key]) idx[key] = [];
+    idx[key].push(r);
+  }
+  console.log(`✅ Built name index with ${Object.keys(idx).length} keys`);
+  return idx;
+}
+
+/* ===== Suggestions (≥ 4 letters) ===== */
+function getSuggestions(q) {
+  const k = normalize(q);
+  if (k.length < 4) return [];
+  const keys = Object.keys(state.nameIndex).filter((x) => x.includes(k));
+  const names = keys.map((x) => state.nameIndex[x][0].name);
+  // unique + sorted + capped
+  return [...new Set(names)].sort((a, b) => a.localeCompare(b)).slice(0, 12);
+}
+
+function renderSuggestions(items) {
+  const ul = assertEl($("#suggestList"), "#suggestList");
+  ul.innerHTML = items
+    .map((txt, i) => `<li class="suggest-item" role="option" id="opt-${i}" tabindex="0">${txt}</li>`)
+    .join("");
+  ul.hidden = items.length === 0;
+  assertEl($("#nameInput"), "#nameInput").setAttribute("aria-expanded", String(!ul.hidden));
+}
+
+function clearSuggestions() {
+  const ul = assertEl($("#suggestList"), "#suggestList");
+  ul.innerHTML = "";
+  ul.hidden = true;
+  assertEl($("#nameInput"), "#nameInput").setAttribute("aria-expanded", "false");
+}
+
+function pickSuggestion(text) {
+  assertEl($("#nameInput"), "#nameInput").value = text;
+  clearSuggestions();
+}
+
+/* ===== Find record ===== */
+function findRecord(input) {
+  const k = normalize(input);
+  if (state.nameIndex[k]) return state.nameIndex[k][0];
+  const partial = Object.keys(state.nameIndex).find((x) => x.includes(k));
+  return partial ? state.nameIndex[partial][0] : null;
+}
+
+/* ===== Loader messaging ===== */
+function cycleLoaderMessages() {
+  const msgEl = assertEl($("#loaderMsg"), "#loaderMsg");
+  let i = 0;
+  msgEl.textContent = MESSAGES[i];
+  const timer = setInterval(() => {
+    i = (i + 1) % MESSAGES.length;
+    msgEl.textContent = MESSAGES[i];
+  }, 2000);
+  return timer;
+}
+
+/* ===== Carousel loop prep ===== */
+function prepareCarouselLoop() {
+  const track = $(".carousel-track");
+  if (!track) {
+    console.warn("⚠️ .carousel-track not found (skipping loop prep).");
+    return;
+  }
+  const items = Array.from(track.children);
+  if (items.length === 0) {
+    console.warn("⚠️ No carousel items found.");
+    return;
+  }
+  // Duplicate items for seamless loop
+  items.forEach((n) => track.appendChild(n.cloneNode(true)));
+  console.log("✅ Carousel prepared (duplicated items for seamless loop).");
+}
+
+/* ===== Result render ===== */
+// You can edit the house intros here (Spanish/English as you prefer)
+/* TODO: EDIT the text below if you want to change each house intro */
+const HOUSE_INTROS = {
+  Aegir:
+    "Aegir honors steadiness and teamwork—calm in the storm, strong in purpose. Your resolve inspires others to sail true.",
+  Pelagia:
+    "Pelagia celebrates empathy, creativity, and community. Your spark brings people together and ignites fresh ideas.",
+  Kai:
+    "Kai prizes courage, discipline, and mastery. Your determination forges paths where others hesitate.",
+  Nerida:
+    "Nerida exalts curiosity, adaptability, and practical wisdom. Your inquisitive mind uncovers elegant solutions.",
+};
+
+function renderResult(rec) {
+  const img = assertEl($("#houseImg"), "#houseImg");
+  img.src = HOUSE_IMAGES[rec.house] || "";
+  img.alt = `House crest: ${rec.house}`;
+
+  assertEl($("#studentName"), "#studentName").textContent = rec.name || "";
+  assertEl($("#houseName"), "#houseName").textContent = rec.house || "";
+  assertEl($("#houseIntro"), "#houseIntro").textContent = HOUSE_INTROS[rec.house] || "";
+
+  assertEl($("#result"), "#result").hidden = false;
+}
+
+/* ===== Error/Modal helpers ===== */
+function showError(msg) {
+  const el = assertEl($("#error"), "#error");
+  el.textContent = msg;
+  el.hidden = false;
+}
+function hideError() {
+  assertEl($("#error"), "#error").hidden = true;
+}
+function showModal() {
+  assertEl($("#loaderModal"), "#loaderModal").hidden = false;
+}
+function hideModal() {
+  assertEl($("#loaderModal"), "#loaderModal").hidden = true;
+}
+
+/* ===== Data init ===== */
+async function initData() {
+  console.log(`ℹ️ Fetching JSON from: ${JSON_URL}`);
+  const res = await fetch(JSON_URL, { cache: "no-store" });
+  if (!res.ok) {
+    console.error(`❌ Failed to fetch JSON. HTTP ${res.status}`);
+    throw new Error(`Cannot load JSON (HTTP ${res.status}) – check the file path/name and that it is in the same folder.`);
+  }
+  const data = await res.json();
+  state.list = flattenData(data);
+  if (state.list.length === 0) {
+    throw new Error("JSON loaded but produced 0 records. Check JSON shape or file content.");
+  }
+  state.nameIndex = buildNameIndex(state.list);
+  state.initialized = true;
+  console.log("✅ Data initialized.");
+}
+
+/* ===== Event bindings ===== */
+function bindEvents() {
+  const nameInput = assertEl($("#nameInput"), "#nameInput");
+  const suggestList = assertEl($("#suggestList"), "#suggestList");
+  const form = assertEl($("#lookupForm"), "#lookupForm");
+  const againBtn = assertEl($("#againBtn"), "#againBtn");
+
+  // suggestions on input (≥ 4 chars)
+  nameInput.addEventListener("input", (e) => {
+    hideError();
+    const q = e.target.value || "";
+    const items = getSuggestions(q);
+    renderSuggestions(items);
+  });
+
+  // click a suggestion
+  suggestList.addEventListener("click", (e) => {
+    const li = e.target.closest(".suggest-item");
+    if (!li) return;
+    pickSuggestion(li.textContent);
+  });
+
+  // keyboard select (Enter)
+  suggestList.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      const li = e.target.closest(".suggest-item");
+      if (li) {
+        e.preventDefault();
+        pickSuggestion(li.textContent);
+      }
+    }
+  });
+
+  // click outside closes suggestions
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".suggest-wrap")) clearSuggestions();
+  });
+
+  // submit
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    hideError();
+    clearSuggestions();
+
+    if (!state.initialized) {
+      return showError("Data not loaded yet. Please try again in a moment.");
+    }
+
+    const name = nameInput.value.trim();
+    if (!name) return showError("Please type your name.");
+
+    const rec = findRecord(name);
+    if (!rec) return showError("Name not found. Pick a suggestion.");
+
+    // open modal, cycle messages
+    showModal();
+    const timer = cycleLoaderMessages();
+
+    // reveal after delay
+    setTimeout(() => {
+      clearInterval(timer);
+      hideModal();
+      renderResult(rec);
+    }, REVEAL_DELAY_MS);
+  });
+
+  // reset
+  againBtn.addEventListener("click", () => {
+    assertEl($("#result"), "#result").hidden = true;
+    nameInput.value = "";
+    nameInput.focus();
+    hideError();
+  });
+}
+
+/* ===== Init ===== */
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    prepareCarouselLoop(); // safe even if track is missing
+    await initData();
+  } catch (err) {
+    console.error(err);
+    showError(err.message || "Error loading data.");
+  }
+  bindEvents();
+});

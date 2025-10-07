@@ -1,93 +1,113 @@
 :root{
-  --bg:#0b1222;
-  --panel:#0f172a;
-  --text:#e5e7eb;
-  --muted:#94a3b8;
-  --accent:#22d3ee;
-  --border:#1f2937;
-  --ok:#10b981;
+  --bg:#0b0e16;
+  --panel:#101522;
+  --text:#eadfd1;          /* tono pergamino */
+  --muted:#b7ab9a;
+  --accent:#d4af37;        /* dorado */
+  --accent2:#8fb3ff;       /* azul tenue */
+  --border:#2a3142;
   --danger:#ef4444;
 
-  /* loader / orbit sizes */
-  --orbit-size: 280px;
-  --orbit-radius: 110px; /* distance from center to icons */
-  --orbit-speed: 8s;     /* full rotation time */
+  /* Modal carousel */
+  --carousel-width: 520px;
+  --carousel-height: 200px;
+  --carousel-speed: 12s;   /* tiempo de giro */
 }
 
-*{ box-sizing: border-box; }
+*{ box-sizing:border-box; }
 html,body{ height:100%; margin:0; }
 body{
   background:
-    radial-gradient(1200px 600px at 50% -10%, #0d1427 10%, var(--bg) 60%),
+    radial-gradient(1200px 620px at 50% -10%, #0e1424 10%, #0a0f1a 60%),
     var(--bg);
   color:var(--text);
-  font: 16px/1.5 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", sans-serif;
+  font: 16px/1.6 "Cinzel", "IM Fell English SC", Georgia, Garamond, serif;
 }
 
-/* ---------- header / arc ---------- */
+/* ----- Hero ----- */
 .hero{
-  max-width:1000px; margin:28px auto 0; padding:0 16px; text-align:center;
+  max-width:1100px; margin:28px auto 0; padding:0 16px; text-align:center;
 }
 .title{
   margin:0;
-  font-size: clamp(1.8rem, 4.8vw, 2.8rem);
-  letter-spacing:.02em;
+  font-family: "Cinzel", serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4.6vw, 3rem);
+  letter-spacing: .05em;
+  color: var(--accent);
+  text-shadow: 0 2px 0 #000, 0 8px 20px rgba(0,0,0,.5);
 }
 
-/* ensure no collision: arc box has top margin */
+/* Arco + emblema */
 .arc-wrap{
-  position: relative;
-  width:min(900px, 92vw);
-  margin: 16px auto 0;
-  padding-top: 8px;
+  position:relative;
+  width:min(980px, 92vw);
+  margin: 6px auto 0;
+  padding-top: 0.25rem;
+}
+.arc-svg{ width:100%; height:auto; display:block; }
+.arc-text{
+  fill: var(--muted);
+  font-family: "IM Fell English SC", serif;
+  font-size: 18px;
+  letter-spacing:.12em;
+  text-shadow: 0 1px 0 #000;
 }
 
-/* emblem centered at arc apex */
+/* Emblema a la derecha del arco */
 .arc-emblem{
   position:absolute;
-  left:50%; top:8px; transform: translateX(-50%);
-  width:72px; height:72px; object-fit:contain;
-  filter: drop-shadow(0 6px 10px rgba(0,0,0,.35));
+  right: -10px; top: 8px;
+  width: 92px; height: 92px; object-fit: contain;
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,.45));
   pointer-events:none;
 }
 
-.arc-svg{
-  width:100%; height:auto; display:block;
-  pointer-events:none; /* purely decorative */
-}
-.arc-text{
-  fill: var(--muted);
-  font-weight: 700;
-  letter-spacing: .1em;
-  font-size: 16px;
-}
-
-/* ---------- main ---------- */
+/* ----- Main ----- */
 .container{ max-width:900px; margin: 18px auto 40px; padding: 0 16px; }
 
 .lookup{
-  background: rgba(255,255,255,.03);
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
   border:1px solid var(--border);
   border-radius: 14px;
   padding: 16px;
-  backdrop-filter: blur(6px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.03), 0 14px 40px rgba(0,0,0,.25);
 }
 .input-row{
   display:flex; gap:10px; align-items:center; justify-content:center;
-  flex-wrap: wrap;
+  flex-wrap:wrap;
 }
+.suggest-wrap{ position:relative; flex:1 1 380px; min-width:280px; }
 #nameInput{
-  flex:1 1 360px; min-width:260px;
-  background: var(--panel); color: var(--text);
-  border: 1px solid var(--border); border-radius: 10px;
-  padding: 12px 14px; outline: none;
+  width:100%;
+  background: var(--panel);
+  color: var(--text);
+  border:1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  outline:none;
+  font-family: "Cinzel", serif;
+}
+.suggest-list{
+  position:absolute; left:0; right:0; top:100%; z-index:10;
+  background:#0d1322; border:1px solid var(--border); border-top:0;
+  border-radius: 0 0 10px 10px; max-height: 260px; overflow:auto;
+  box-shadow: 0 14px 38px rgba(0,0,0,.35);
+}
+.suggest-list[hidden]{ display:none; }
+.suggest-item{
+  padding:10px 12px; cursor:pointer; border-top:1px solid #0a0f1a;
+}
+.suggest-item:hover, .suggest-item[aria-selected="true"]{
+  background:#101a33;
 }
 .btn{
   padding: 12px 16px; border-radius: 10px;
-  background: var(--accent); color:#001219; border:0; cursor:pointer;
-  font-weight:700;
+  background: var(--accent); color:#1a1402; border:0; cursor:pointer;
+  font-weight:800; font-family: "Cinzel", serif;
+  text-transform: uppercase; letter-spacing:.05em;
 }
-.btn:hover{ filter:brightness(1.08); }
+.btn:hover{ filter:brightness(1.06); }
 .btn.secondary{
   background:transparent; color:var(--text);
   border:1px solid var(--border);
@@ -98,24 +118,24 @@ body{
 
 .result{
   margin-top: 18px; text-align:center;
-  background: var(--panel);
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
   border:1px solid var(--border);
   border-radius: 14px; padding: 22px;
   animation: fadeIn .4s ease-out both;
 }
 .house-img{
-  max-width: 240px; width: 60%; height:auto;
+  max-width: 260px; width: 60%; height:auto;
   filter: drop-shadow(0 10px 16px rgba(0,0,0,.35));
 }
 .student-name{ margin:.7rem 0 0; font-size: clamp(1.3rem, 3.2vw, 2rem); }
-.house-name{ margin:.25rem 0 0; color: var(--ok); font-size: clamp(1.1rem, 2.6vw, 1.6rem); }
-.congrats{ margin:.4rem 0 1rem; color: var(--muted) }
+.house-name{ margin:.25rem 0 0; color: var(--accent2); font-size: clamp(1.1rem, 2.2vw, 1.6rem); }
+.house-intro{ margin:.45rem auto 1rem; color: var(--muted); max-width: 46ch }
 
 .site-footer{
   max-width:900px; margin:20px auto 40px; padding:0 16px; text-align:center; color: var(--muted);
 }
 
-/* ---------- modal loader (overlay) ---------- */
+/* ----- Modal con carrusel ----- */
 .modal[hidden]{ display:none !important; }
 .modal{
   position: fixed; inset: 0; z-index: 50;
@@ -127,55 +147,62 @@ body{
 }
 .modal-content{
   position:relative; z-index:1;
-  width:min(92vw, 560px);
+  width:min(92vw, 640px);
   border-radius:16px; border:1px solid var(--border);
-  background: #0d1427;
+  background: #0e1527;
   padding: 22px;
   text-align:center;
   box-shadow: 0 24px 80px rgba(0,0,0,.35);
   animation: pop .2s ease-out both;
 }
 .modal-title{
-  margin:0 0 12px; font-weight:800; letter-spacing:.02em;
-}
-.loading-text{ color: var(--muted); margin:.5rem 0 0 }
-
-/* orbit container rotates; children are placed at a fixed radius */
-.orbit{
-  position:relative; width: var(--orbit-size); height: var(--orbit-size);
-  margin: 8px auto 6px;
-  animation: orbitSpin var(--orbit-speed) linear infinite;
-}
-.orbit-item{
-  position:absolute; left:50%; top:50%;
-  width: 86px; height:86px; object-fit:contain;
-  transform:
-    rotate(var(--ang))
-    translate(var(--orbit-radius))
-    rotate(calc(-1 * var(--ang)));
-  filter: drop-shadow(0 6px 10px rgba(0,0,0,.35));
-}
-.orbit-center{
-  position:absolute; left:50%; top:50%;
-  width: 12px; height:12px; border-radius:50%;
-  background: #1e293b; border:1px solid #334155;
-  transform: translate(-50%, -50%);
+  margin:0 0 12px; font-weight:900; letter-spacing:.03em; color: var(--accent);
+  font-family: "Cinzel", serif;
 }
 
-@keyframes orbitSpin { to { transform: rotate(360deg) } }
+/* Carrusel: pista que se desplaza en bucle */
+.carousel{
+  position: relative;
+  width: var(--carousel-width);
+  height: var(--carousel-height);
+  margin: 8px auto 12px;
+  overflow: hidden;
+  border:1px solid var(--border);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+}
+.carousel-track{
+  position:absolute; left:0; top:0; bottom:0;
+  display:flex; gap: 28px; align-items:center;
+  padding: 0 12px;
+  animation: slideLoop var(--carousel-speed) linear infinite;
+}
+.carousel-item{
+  width: 140px; height: 140px; object-fit:contain;
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,.45));
+}
 
+@keyframes slideLoop{
+  0%   { transform: translateX(0) }
+  100% { transform: translateX(-50%) } /* se repite duplicando nodos en JS */
+}
+
+.loading-text{ color: var(--muted); margin:.25rem 0 0 }
+
+/* ---- Animaciones utilitarias ---- */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(6px) }
-  to { opacity: 1; transform: translateY(0) }
+  to   { opacity: 1; transform: translateY(0) }
 }
 @keyframes pop {
   from { opacity:0; transform: translateY(6px) scale(.98) }
   to   { opacity:1; transform: translateY(0) scale(1) }
 }
 
-@media (max-width:720px){
+@media (max-width:760px){
   :root{
-    --orbit-size: 240px;
-    --orbit-radius: 95px;
+    --carousel-width: 86vw;
+    --carousel-height: 180px;
   }
+  .arc-emblem{ right: -2px; width: 76px; height: 76px; }
 }
