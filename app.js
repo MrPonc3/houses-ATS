@@ -1,25 +1,19 @@
 // ====== Config ======
-const JSON_URL = "./houses_from_toJSON_template1_latest.json"; // mismo folder
+const JSON_URL = "./houses_from_toJSON_template1_latest.json"; // keep in same folder
 const LOADING_DURATION_MS = 5000;
 
-// Rutas de imágenes (ajusta nombres/ubicación si usas otras)
+// House crest images (replace paths if needed)
 const HOUSE_IMAGES = {
-  "Aegir": "./house-aegir.png",
-  "Pelagia": "./house-pelagia.png",
-  "Kai": "./house-kai.png",
-  "Nerida": "./house-nerida.png"
+  "Aegir": "./img/house-aegir.png",
+  "Pelagia": "./img/house-pelagia.png",
+  "Kai": "./img/house-kai.png",
+  "Nerida": "./img/house-nerida.png"
 };
-const LOADER_IMAGES = [
-  "./loader1.png",
-  "./loader2.png",
-  "./loader3.png",
-  "./loader4.png"
-];
 
 // ====== State ======
 const state = {
-  list: [],      // registros aplanados {name,email,gender,house,level}
-  nameIndex: {}  // clave normalizada -> registros (array)
+  list: [],      // flat records {name,email,gender,house,level}
+  nameIndex: {}  // normalized name -> [records]
 };
 
 // ====== Utils ======
@@ -33,7 +27,6 @@ function normalizeStr(s){
     .trim();
 }
 
-// Convierte el JSON HOUSES a lista plana
 function flattenData(db){
   const out = [];
   const H = db?.HOUSES || {};
@@ -55,7 +48,6 @@ function flattenData(db){
   return out;
 }
 
-// Construye índice de nombres para autocompletar/búsqueda
 function buildNameIndex(list){
   const idx = {};
   for (const r of list) {
@@ -66,7 +58,6 @@ function buildNameIndex(list){
   return idx;
 }
 
-// ====== Autocomplete con <datalist> ======
 function populateDatalist(list){
   const dl = $("#nameList");
   dl.innerHTML = list
@@ -77,77 +68,59 @@ function populateDatalist(list){
     .join("");
 }
 
-// ====== UI ======
-function show(sectionId){
-  for (const id of ["loader","result"]) $( "#" + id ).hidden = true;
-  $("#" + sectionId).hidden = false;
-}
-function hideErrors(){ $("#error").hidden = true; }
+// UI helpers
+function hideError(){ $("#error").hidden = true; }
 function showError(msg){
   const el = $("#error");
   el.textContent = msg;
   el.hidden = false;
 }
 
-// Carga de datos inicial
+function showModal(){ $("#loaderModal").hidden = false; }
+function hideModal(){ $("#loaderModal").hidden = true; }
+
+function renderResult(rec){
+  $("#houseImg").src = HOUSE_IMAGES[rec.house] || "";
+  $("#houseImg").alt = `House crest: ${rec.house}`;
+  $("#studentName").textContent = rec.name || "";
+  $("#houseName").textContent = rec.house || "";
+  $("#result").hidden = false;
+}
+
+// ====== Data init ======
 async function initData(){
   const res = await fetch(JSON_URL, { cache: "no-store" });
-  if (!res.ok) throw new Error(`No se pudo cargar JSON (HTTP ${res.status})`);
+  if (!res.ok) throw new Error(`Cannot load JSON (HTTP ${res.status})`);
   const data = await res.json();
   state.list = flattenData(data);
   state.nameIndex = buildNameIndex(state.list);
   populateDatalist(state.list);
 }
 
-// Buscar por nombre (case/acentos insensible)
-function findByName(inputName){
-  const key = normalizeStr(inputName);
-  // Coincidencia exacta normalizada
+// match name (case/diacritic-insensitive)
+function findByName(input){
+  const key = normalizeStr(input);
   if (state.nameIndex[key]) return state.nameIndex[key][0];
-
-  // Si no hay exacta: buscar por "contiene"
-  const candidates = Object.keys(state.nameIndex).filter(k => k.includes(key));
-  if (candidates.length > 0) return state.nameIndex[candidates[0]][0];
-
-  return null;
+  const partial = Object.keys(state.nameIndex).find(k => k.includes(key));
+  return partial ? state.nameIndex[partial][0] : null;
 }
 
-// Mostrar resultado final
-function renderResult(rec){
-  // Imagen de casa
-  const imgSrc = HOUSE_IMAGES[rec.house] || "";
-  $("#houseImg").src = imgSrc;
-  $("#houseImg").alt = `Escudo de la casa ${rec.house}`;
-
-  // Textos
-  $("#studentName").textContent = rec.name || "";
-  $("#houseName").textContent = rec.house || "";
-
-  show("result");
-}
-
-// ====== Eventos ======
+// ====== Events ======
 function bindEvents(){
-  $("#lookupForm").addEventListener("submit", async (e)=>{
+  $("#lookupForm").addEventListener("submit", (e)=>{
     e.preventDefault();
-    hideErrors();
+    hideError();
 
     const name = $("#nameInput").value.trim();
-    if (!name) return showError("Por favor, escribe tu nombre.");
+    if (!name) return showError("Please type your name.");
 
     const rec = findByName(name);
-    if (!rec) {
-      return showError("Nombre no encontrado. Revisa la ortografía o elige desde las sugerencias.");
-    }
+    if (!rec) return showError("Name not found. Pick from suggestions.");
 
-    // Mostrar loader ~5s y luego resultado
-    show("loader");
-    // precargar imágenes del loader por si no existen ya
-    for (const [i, img] of [...$("#loader .spinner").querySelectorAll("img")].entries()){
-      if (LOADER_IMAGES[i]) img.src = LOADER_IMAGES[i];
-    }
-
+    // open modal loader, then reveal result after 5s
+    showModal();
     setTimeout(()=>{
+      hideModal();
       renderResult(rec);
     }, LOADING_DURATION_MS);
   });
@@ -156,7 +129,7 @@ function bindEvents(){
     $("#result").hidden = true;
     $("#nameInput").value = "";
     $("#nameInput").focus();
-    hideErrors();
+    hideError();
   });
 }
 
@@ -165,7 +138,7 @@ document.addEventListener("DOMContentLoaded", async ()=>{
   try{
     await initData();
   }catch(err){
-    showError(err.message || "Error al cargar los datos.");
+    showError(err.message || "Error loading data.");
   }
   bindEvents();
 });
