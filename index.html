@@ -1,24 +1,29 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ATS HOUSE SELECTION</title>
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
   <header class="hero">
-    <h1>ATS HOUSE SELECTION</h1>
+    <h1 class="title">ATS HOUSE SELECTION</h1>
 
-    <!-- Leyenda en arco (SVG + textPath) -->
-    <div class="arc-wrap" aria-hidden="true">
-      <svg viewBox="0 0 600 220" class="arc-svg">
+    <!-- Arc tagline + emblem (no collision with title) -->
+    <div class="arc-wrap">
+      <!-- emblem along the arc (replace src with your image) -->
+      <img id="arcEmblem" class="arc-emblem" src="./img/arc-emblem.png" alt="ATS Emblem" />
+
+      <!-- Arc text (SVG + textPath) -->
+      <svg viewBox="0 0 800 280" class="arc-svg" aria-hidden="true">
         <defs>
-          <path id="arcPath" d="M 50 170 A 250 250 0 0 1 550 170"></path>
+          <!-- A wide, gentle arc -->
+          <path id="arcPath" d="M 60 220 A 340 340 0 0 1 740 220"></path>
         </defs>
         <text class="arc-text">
-          <textPath xlink:href="#arcPath" startOffset="25%" text-anchor="middle">
-            UNA CASA NOS ELIGE Y NOSOTROS LA HACEMOS NUESTRA
+          <textPath href="#arcPath" startOffset="50%" text-anchor="middle">
+            ONE HOUSE CHOOSES US AND WE MAKE IT OUR OWN
           </textPath>
         </text>
       </svg>
@@ -26,41 +31,48 @@
   </header>
 
   <main class="container">
-    <!-- Formulario -->
+    <!-- Input + button (autocomplete) -->
     <form id="lookupForm" class="lookup" autocomplete="off">
       <div class="input-row">
-        <input id="nameInput" type="search" placeholder="Escribe tu nombre..." list="nameList" required />
+        <input id="nameInput" type="search" placeholder="Type your name..." list="nameList" required />
         <datalist id="nameList"></datalist>
-        <button class="btn" type="submit">Descubrir mi Casa</button>
+        <button class="btn" type="submit">Reveal my House</button>
       </div>
-      <p id="hint" class="hint">Empieza a escribir y elige tu nombre de la lista.</p>
-      <p id="error" class="error" role="alert" hidden>Nombre no encontrado. Revisa la ortografía o selecciona desde las sugerencias.</p>
+      <p id="hint" class="hint">Start typing and pick your name from the list.</p>
+      <p id="error" class="error" role="alert" hidden>Name not found. Check spelling or choose from suggestions.</p>
     </form>
 
-    <!-- Pantalla de carga -->
-    <section id="loader" class="loader" hidden aria-live="polite">
-      <div class="spinner">
-        <img src="./loader1.png" alt="" />
-        <img src="./loader2.png" alt="" />
-        <img src="./loader3.png" alt="" />
-        <img src="./loader4.png" alt="" />
-      </div>
-      <p class="loading-text">Consultando el Sombrero...</p>
-    </section>
-
-    <!-- Resultado -->
+    <!-- Result -->
     <section id="result" class="result" hidden>
-      <img id="houseImg" class="house-img" alt="Escudo de la casa" />
+      <img id="houseImg" class="house-img" alt="House crest" />
       <h2 id="studentName" class="student-name"></h2>
       <h3 id="houseName" class="house-name"></h3>
-      <p class="congrats">¡Felicidades! La casa te ha elegido. 💫</p>
-      <button id="againBtn" class="btn secondary" type="button">Buscar otro nombre</button>
+      <p class="congrats">Congratulations! The house has chosen you. ✨</p>
+      <button id="againBtn" class="btn secondary" type="button">Search another name</button>
     </section>
   </main>
 
   <footer class="site-footer">
-    <small>Fuente de datos: <code>houses_from_toJSON_template1_latest.json</code></small>
+    <small>Data source: <code>houses_from_toJSON_template1_latest.json</code></small>
   </footer>
+
+  <!-- Loader Modal (overlay) -->
+  <div id="loaderModal" class="modal" hidden aria-live="polite" aria-modal="true" role="dialog">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content" role="document">
+      <h2 class="modal-title">The Sorting is in progress...</h2>
+      <div class="orbit">
+        <!-- these 4 images will orbit; replace src paths as needed -->
+        <img src="./img/loader1.png" alt="" class="orbit-item" style="--ang:0deg" />
+        <img src="./img/loader2.png" alt="" class="orbit-item" style="--ang:90deg" />
+        <img src="./img/loader3.png" alt="" class="orbit-item" style="--ang:180deg" />
+        <img src="./img/loader4.png" alt="" class="orbit-item" style="--ang:270deg" />
+        <!-- center dot just for reference/feel -->
+        <div class="orbit-center"></div>
+      </div>
+      <p class="loading-text">Please wait a moment...</p>
+    </div>
+  </div>
 
   <script src="./app.js" defer></script>
 </body>
