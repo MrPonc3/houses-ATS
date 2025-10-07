@@ -4,16 +4,16 @@ const LOADING_DURATION_MS = 5000;
 
 // Rutas de imágenes (ajusta nombres/ubicación si usas otras)
 const HOUSE_IMAGES = {
-  "Aegir": "./img/house-aegir.png",
-  "Pelagia": "./img/house-pelagia.png",
-  "Kai": "./img/house-kai.png",
-  "Nerida": "./img/house-nerida.png"
+  "Aegir": "./house-aegir.png",
+  "Pelagia": "./house-pelagia.png",
+  "Kai": "./house-kai.png",
+  "Nerida": "./house-nerida.png"
 };
 const LOADER_IMAGES = [
-  "./img/loader1.png",
-  "./img/loader2.png",
-  "./img/loader3.png",
-  "./img/loader4.png"
+  "./loader1.png",
+  "./loader2.png",
+  "./loader3.png",
+  "./loader4.png"
 ];
 
 // ====== State ======
