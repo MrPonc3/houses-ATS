@@ -1,13 +1,11 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ATS HOUSE SELECTION</title>
 
-
-  
-  <!-- Fuentes medieval vibes -->
+  <!-- Medieval style fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
@@ -17,49 +15,51 @@
 <body>
   <header class="hero">
     <h1 class="title">ATS HOUSE SELECTION</h1>
-      <!-- Logo principal centrado -->
-      <div class="main-logo">
-        <img src="./img/image_2025-10-07_121121532.png" alt="ATS emblem" class="main-logo-img">
-      </div>
-    <h2>  UNA CASA NOS ELIGE, PERO NOSOTROS LA HACEMOS NUESTRA</h2>
-    <!-- Arco con leyenda + emblema ATS a un lado (no colisiona con el título) -->
+
+    <!-- Centered main logo -->
+    <div class="main-logo">
+      <img src="./img/image_2025-10-07_121121532.png" alt="ATS emblem" class="main-logo-img">
+    </div>
+
+    <h2>A HOUSE CHOOSES US, BUT WE MAKE IT OUR OWN</h2>
+    <!-- Arc with motto + ATS emblem on the side (doesn't collide with the title) -->
   </header>
 
   <main class="container">
-    <!-- Buscador con sugerencias a partir de 4 caracteres -->
+    <!-- Search bar with suggestions after typing 4 characters -->
     <form id="lookupForm" class="lookup" autocomplete="off">
       <div class="input-row">
         <div class="suggest-wrap">
-          <input id="nameInput" type="search" placeholder="Escribe tu nombre..." aria-autocomplete="list" aria-expanded="false" aria-owns="suggestList" required />
+          <input id="nameInput" type="search" placeholder="Type your name..." aria-autocomplete="list" aria-expanded="false" aria-owns="suggestList" required />
           <ul id="suggestList" class="suggest-list" role="listbox" hidden></ul>
         </div>
-        <button class="btn" type="submit">Revelar mi casa</button>
+        <button class="btn" type="submit">Reveal my House</button>
       </div>
-      <p id="hint" class="hint">Escribe al menos 4 letras para ver sugerencias.</p>
-      <p id="error" class="error" role="alert" hidden>Nombre no encontrado. Revisa la ortografía o elige una sugerencia.</p>
+      <p id="hint" class="hint">Type at least 4 letters to see suggestions.</p>
+      <p id="error" class="error" role="alert" hidden>Name not found. Check the spelling or pick a suggestion.</p>
     </form>
 
-    <!-- Resultado final -->
+    <!-- Final result -->
     <section id="result" class="result" hidden>
-      <img id="houseImg" class="house-img" alt="Escudo de la casa" />
+      <img id="houseImg" class="house-img" alt="House crest" />
       <h2 id="studentName" class="student-name"></h2>
       <h3 id="houseName" class="house-name"></h3>
       <p id="houseIntro" class="house-intro"></p>
-      <button id="againBtn" class="btn secondary" type="button">Buscar otro nombre</button>
+      <button id="againBtn" class="btn secondary" type="button">Search another name</button>
     </section>
   </main>
 
   <footer class="site-footer">
-    <small>Fuente de datos: <code>houses_from_toJSON_template1_latest.json</code></small>
+    <small>Data source: <code>houses_from_toJSON_template1_latest.json</code></small>
   </footer>
 
-  <!-- Modal de carga con carrusel de casas -->
+  <!-- Loading modal with rotating house crests -->
   <div id="loaderModal" class="modal" hidden aria-live="polite" aria-modal="true" role="dialog">
     <div class="modal-backdrop"></div>
     <div class="modal-content" role="document">
-      <h2 class="modal-title">El Sombrero está decidiendo…</h2>
+      <h2 class="modal-title">The Hat is deciding…</h2>
 
-      <!-- Carrusel rotando escudos -->
+      <!-- Rotating carousel of house crests -->
       <div class="carousel">
         <div class="carousel-track">
           <img src="./img/house-aegir.png" alt="Aegir" class="carousel-item">
@@ -69,7 +69,7 @@
         </div>
       </div>
 
-      <p id="loaderMsg" class="loading-text">#analizando tu perfil…</p>
+      <p id="loaderMsg" class="loading-text">#analyzing your profile…</p>
     </div>
   </div>
 
