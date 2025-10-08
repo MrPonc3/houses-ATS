@@ -23,8 +23,8 @@
 }
 
 .main-logo-img {
-  width: 46px; /* 50% of the previous 92px */
-  height: 46px;
+  width: 50%; /* 50% of the previous 92px */
+  height: 50%;
   object-fit: contain;
   filter: drop-shadow(0 6px 10px rgba(0,0,0,.35));
 }
